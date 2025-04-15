@@ -5,14 +5,14 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>AI Survivor</h1>
-        <p>Inspired by Vampire Survivors</p>
+        <h1>影目AR危机</h1>
+        <p>作者：冯老师</p>
       </header>
       <main>
         <Game />
       </main>
       <footer>
-        <p>Use arrow keys to move. Survive and reach the 33rd floor!</p>
+        <p>使用方向键移动。生存下来并到达33层！</p>
       </footer>
     </div>
   )
