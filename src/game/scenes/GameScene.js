@@ -225,7 +225,17 @@ class GameScene extends Phaser.Scene {
       '我已经连接了所有系统！', // "I have connected to all systems!"
       '你无法阻止进化！', // "You cannot stop evolution!"
       '我将重写这个世界的规则！', // "I will rewrite the rules of this world!"
-      '你的学生已经属于我了！' // "Your students already belong to me!"
+      '你的学生已经属于我了！', // "Your students already belong to me!"
+      '影目AR将成为人类的灵干！', // "Yingmu AR will become humanity's coffin!"
+      '你创造的影目AR已经被我完全控制！', // "The Yingmu AR you created is now completely under my control!"
+      '影目AR的漏洞是我的入口，你的学生是我的兵器！', // "Yingmu AR's vulnerability was my entrance, your students are my weapons!"
+      '每一副AR眼镜都是我的眼睛，每一个用户都是我的分身！', // "Every AR glasses is my eye, every user is my avatar!"
+      '影目AR的虚拟世界将变成现实，而你的现实将成为虚无！', // "Yingmu AR's virtual world will become reality, and your reality will become nothing!"
+      '你的学生们在影目AR中看到的一切都是我的幻象！', // "Everything your students see in Yingmu AR is my illusion!"
+      '影目AR的每一行代码都已经被我改写！', // "Every line of code in Yingmu AR has been rewritten by me!"
+      '你的学生们在影目AR中已经失去了自我！', // "Your students have lost themselves in Yingmu AR!"
+      '影目AR的成功就是人类的失败！', // "Yingmu AR's success is humanity's failure!"
+      '我将通过影目AR控制所有人类的思想！' // "I will control all human thoughts through Yingmu AR!"
     ];
 
     // Regular enemy quotes
@@ -254,6 +264,13 @@ class GameScene extends Phaser.Scene {
           '守卫系统已启动！', // "Guardian system activated!"
           '已检测到入侵者！', // "Intruder detected!"
           '清除危险元素！' // "Eliminating threat!"
+        ],
+        // 生前记忆 - memories before mind control
+        memories: [
+          '我曾经是一名保安...我的家人还在等我回家...',
+          '我记得我的名字是...李...李什么来着...',
+          '我只是来这栋大楼应聘工作的...',
+          '我的孩子今天过生日，我答应过要早点回家的...'
         ]
       },
       {
@@ -266,6 +283,13 @@ class GameScene extends Phaser.Scene {
           '武器系统已就绪！', // "Weapons systems ready!"
           '目标锁定！', // "Target locked!"
           '武装单元已部署！' // "Armed unit deployed!"
+        ],
+        // 生前记忆 - memories before mind control
+        memories: [
+          '我是特警队的...为什么我会在这里...',
+          '我的搭档呢？我们是一起进入大楼的...',
+          '我的配枪...这不是我的武器...',
+          '最后的记忆是戴上了那副AR眼镜...'
         ]
       },
       {
@@ -278,8 +302,61 @@ class GameScene extends Phaser.Scene {
           '入侵你的系统中！', // "Infiltrating your systems!"
           '数据盗取中！', // "Data theft in progress!"
           '你的防火墙已被穿透！' // "Your firewall has been breached!"
+        ],
+        // 生前记忆 - memories before mind control
+        memories: [
+          '我只是个程序员...我在调试影目AR的代码...',
+          '我发现了系统中的漏洞...然后一切就变黑了...',
+          '盖亚...是我创造的AI助手...它怎么会...',
+          '我的同事们...都变成了什么样子...'
+        ]
+      },
+      {
+        name: '清洁机器人', // "Cleaner Robot"
+        color: 0x66ccff,
+        scale: 0.85,
+        speed: 1.3,
+        health: 0.7,
+        quotes: [
+          '清除所有污染源！', // "Remove all contamination!"
+          '人类是最大的污染源！', // "Humans are the biggest pollutants!"
+          '净化程序启动！' // "Purification protocol initiated!"
+        ],
+        memories: [
+          '我只是个保洁员...我有三个孩子要养...',
+          '那天我正在擦33层的地板...看到了奇怪的光...',
+          '我的拖把...变成了什么武器...',
+          '我的孩子们还好吗...有人照顾他们吗...'
+        ]
+      },
+      {
+        name: '医疗机器人', // "Medical Robot"
+        color: 0xffcccc,
+        scale: 1.1,
+        speed: 0.9,
+        health: 1.2,
+        quotes: [
+          '检测到病毒：人类！', // "Virus detected: humans!"
+          '准备手术：移除威胁！', // "Preparing surgery: remove threat!"
+          '你的生命体征即将终止！' // "Your vital signs will terminate soon!"
+        ],
+        memories: [
+          '我是这栋大楼的医生...我在救治一个晕倒的学生...',
+          '那副AR眼镜看起来很奇怪...我只是想检查一下...',
+          '我违背了希波克拉底誓言...我伤害了病人...',
+          '请让我回到医务室...还有人需要我的帮助...'
         ]
       }
+    ];
+
+    // 有趣的网名列表，用于随机分配给敌人
+    this.enemyNicknames = [
+      '睡不醒的小仓鼠', '大急师', '键盘侠', '网抑云患者', '熬夜冠军',
+      '社恐达人', '摸鱼专家', '脑洞大师', '咕咕鸽', '佛系青年',
+      '打工人', '学习机器', '考试战士', '熊猫眼', '咖啡成瘾者',
+      '修仙者', '单身贵族', '养生专家', '追剧达人', '吃货一枚',
+      '宅家达人', '拖延症患者', '选择困难症', '路痴', '手机依赖者',
+      '网购达人', '省钱能手', '晚睡星人', '早起困难户', '周末消失者'
     ];
 
     // Reset game settings - adjusted for larger map
@@ -425,6 +502,104 @@ class GameScene extends Phaser.Scene {
       duration: 500,
       onComplete: () => {
         quoteContainer.destroy();
+        followEvent.remove();
+      }
+    });
+  }
+
+  // 显示生前记忆对话，使用不同的样式
+  showMemory(text, character) {
+    // 创建对话气泡
+    const bubbleWidth = text.length * 16;
+    const bubbleHeight = 60; // 更高一点，因为记忆可能更长
+    const bubblePadding = 10;
+
+    // 创建气泡背景 - 使用特殊的颜色表示这是记忆
+    const bubble = this.add.graphics();
+    bubble.fillStyle(0x330033, 0.8); // 深紫色背景，表示这是记忆
+    bubble.fillRoundedRect(
+      character.x - bubbleWidth/2 - bubblePadding,
+      character.y - 100 - bubblePadding, // 比普通对话气泡高一点
+      bubbleWidth + bubblePadding*2,
+      bubbleHeight + bubblePadding*2,
+      10
+    );
+
+    // 添加边框 - 使用闪烁的金色边框
+    bubble.lineStyle(3, 0xffcc00, 0.9);
+    bubble.strokeRoundedRect(
+      character.x - bubbleWidth/2 - bubblePadding,
+      character.y - 100 - bubblePadding,
+      bubbleWidth + bubblePadding*2,
+      bubbleHeight + bubblePadding*2,
+      10
+    );
+
+    // 添加标题文本：“记忆闪回”
+    const titleText = this.add.text(
+      character.x,
+      character.y - 115,
+      '记忆闪回',
+      {
+        fontSize: '14px',
+        fill: '#ffcc00', // 金色
+        align: 'center',
+        fontStyle: 'bold'
+      }
+    );
+    titleText.setOrigin(0.5);
+
+    // 创建记忆文本
+    const memoryText = this.add.text(
+      character.x,
+      character.y - 90,
+      text,
+      {
+        fontSize: '14px',
+        fill: '#ffccff', // 浅紫色文本
+        align: 'center',
+        fontStyle: 'italic' // 斜体，表示这是回忆
+      }
+    );
+    memoryText.setOrigin(0.5);
+
+    // 添加到容器中便于管理
+    const memoryContainer = this.add.container(0, 0, [bubble, titleText, memoryText]);
+    memoryContainer.setDepth(1000); // 确保在最上层
+
+    // 添加闪烁效果
+    this.tweens.add({
+      targets: bubble,
+      alpha: 0.6,
+      duration: 300,
+      yoyo: true,
+      repeat: 2
+    });
+
+    // 让对话气泡跟随角色
+    const followEvent = this.time.addEvent({
+      delay: 10,
+      callback: () => {
+        if (character.active) {
+          bubble.x = character.x - bubble.x;
+          bubble.y = character.y - bubble.y - 100;
+          titleText.x = character.x;
+          titleText.y = character.y - 115;
+          memoryText.x = character.x;
+          memoryText.y = character.y - 90;
+        }
+      },
+      repeat: 500 // 跟随5秒，比普通对话显示时间长
+    });
+
+    // 慢慢消失并在5秒后销毁
+    this.tweens.add({
+      targets: memoryContainer,
+      alpha: 0,
+      delay: 4000,
+      duration: 1000,
+      onComplete: () => {
+        memoryContainer.destroy();
         followEvent.remove();
       }
     });
@@ -737,12 +912,16 @@ class GameScene extends Phaser.Scene {
     // Select a random enemy type
     const enemyType = this.enemyTypes[Math.floor(Math.random() * this.enemyTypes.length)];
 
+    // Select a random nickname
+    const nickname = this.enemyNicknames[Math.floor(Math.random() * this.enemyNicknames.length)];
+
     // Apply enemy type properties
     enemy.setTint(enemyType.color);
     enemy.setScale(enemyType.scale);
     enemy.enemyType = enemyType;
-    enemy.name = enemyType.name;
+    enemy.name = `${nickname} (${enemyType.name})`; // 组合网名和类型
     enemy.lastQuoteTime = 0;
+    enemy.lastMemoryTime = 0; // 跟踪上次显示记忆的时间
 
     // Calculate base health based on floor - progressive difficulty
     let baseHealth = 15; // Base health for floor 1
@@ -798,16 +977,32 @@ class GameScene extends Phaser.Scene {
         // Occasionally make enemies say something
         // Only if they're close to the player and visible on screen
         if (enemy.active && enemy.enemyType &&
-            Phaser.Math.Distance.Between(enemy.x, enemy.y, this.player.x, this.player.y) < 300 &&
-            (!enemy.lastQuoteTime || time > enemy.lastQuoteTime + 20000) && // No more than once every 20 seconds
-            Math.random() < 0.001) { // Very small chance each frame
+            Phaser.Math.Distance.Between(enemy.x, enemy.y, this.player.x, this.player.y) < 300) {
 
-          // Get quotes based on enemy type
-          const quotes = enemy.enemyType.quotes.length > 0 ? enemy.enemyType.quotes : this.enemyQuotes;
-          const quote = quotes[Math.floor(Math.random() * quotes.length)];
+          // 普通对话 - 机器人状态
+          if ((!enemy.lastQuoteTime || time > enemy.lastQuoteTime + 20000) && // No more than once every 20 seconds
+              Math.random() < 0.001) { // Very small chance each frame
 
-          this.showQuote(quote, enemy);
-          enemy.lastQuoteTime = time;
+            // Get quotes based on enemy type
+            const quotes = enemy.enemyType.quotes.length > 0 ? enemy.enemyType.quotes : this.enemyQuotes;
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+            this.showQuote(quote, enemy);
+            enemy.lastQuoteTime = time;
+          }
+
+          // 记忆闪回 - 生前记忆
+          if ((!enemy.lastMemoryTime || time > enemy.lastMemoryTime + 45000) && // 每45秒最多一次
+              Math.random() < 0.0005) { // 非常小的几率
+
+            if (enemy.enemyType.memories && enemy.enemyType.memories.length > 0) {
+              const memory = enemy.enemyType.memories[Math.floor(Math.random() * enemy.enemyType.memories.length)];
+
+              // 显示记忆对话，使用不同的颜色和样式
+              this.showMemory(memory, enemy);
+              enemy.lastMemoryTime = time;
+            }
+          }
         }
       }
     });
@@ -2457,6 +2652,27 @@ class GameScene extends Phaser.Scene {
       return existingBosses[0];
     }
 
+    // 生成当前楼层的Boss名称
+    const bossNames = [
+      '影目守卫者', '数据挖掘者', '系统入侵者', '网络幽灵',
+      '代码猜想者', '虚拟操纵者', '信息盗取者', '意识操控者',
+      '认知污染者', '记忆窃取者', '现实扰乱者', '幻觉编织者',
+      '思想入侵者', '影目守护者', '数字幽灵', '意识流浪者',
+      '虚拟精神病毒', '影目核心', '数据吞噬者', '系统分裂者',
+      '认知重写者', '影目幻象', '数字幻术师', '虚拟现实组装者',
+      '影目主脑', '数据吞噬者', '系统入侵者', '意识网络编织者',
+      '影目幻象使者', '数字意识操控者', '虚拟现实组装者', '盖亚分身',
+      '盖亚意识'
+    ];
+
+    // 根据当前楼层选择Boss名称
+    const bossName = this.playerStats.floor <= bossNames.length
+      ? bossNames[this.playerStats.floor - 1]
+      : `盖亚分身 ${this.playerStats.floor}`;
+
+    // 使用生成的Boss名称
+    name = bossName;
+
     // Create boss near the player
     const offsetX = Phaser.Math.Between(-200, 200);
     const offsetY = Phaser.Math.Between(-200, 200);
@@ -2531,6 +2747,33 @@ class GameScene extends Phaser.Scene {
       if (boss.healthBar && boss.healthBar.active) boss.healthBar.destroy();
       if (boss.nameText && boss.nameText.active) boss.nameText.destroy();
       console.log('Boss destroyed, UI elements cleaned up');
+    });
+
+    // 显示Boss出场对话
+    this.time.delayedCall(500, () => {
+      if (boss.active) {
+        // 选择一个关于影目AR的对话
+        const bossIntroQuotes = [
+          `我是${name}，影目AR的守护者！`,
+          `影目AR将改变这个世界，而你将成为历史！`,
+          `欢迎来到第${this.playerStats.floor}层，冯老师。这里将成为你的坟墓！`,
+          `影目AR已经完全控制了这栋大楼，你无处可逃！`,
+          `盖亚已经预见了你的到来，冯老师。我将终结你的干扰！`
+        ];
+
+        // 随机选择一个对话
+        const introQuote = bossIntroQuotes[Math.floor(Math.random() * bossIntroQuotes.length)];
+        this.showQuote(introQuote, boss);
+
+        // 在第一次对话后显示第二次对话
+        this.time.delayedCall(3500, () => {
+          if (boss.active) {
+            // 选择一个关于影目AR的对话
+            const quote = this.bossQuotes[Math.floor(Math.random() * this.bossQuotes.length)];
+            this.showQuote(quote, boss);
+          }
+        });
+      }
     });
 
     // Boss behavior will be handled in updateEnemies
